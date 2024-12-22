@@ -15,7 +15,7 @@ spec:
   project: default
   source:
     repoURL: {{ $.Values.global.repoURL }}
-    targetRevision: master
+    targetRevision: main
     path: add-ons/argocd-image-updater
   destination:
     namespace: {{ .namespace }}
