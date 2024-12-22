@@ -1,0 +1,53 @@
+promtail:
+  config:
+    clients:
+      - basic_auth:
+          password: 8dEcUMnlGHG2
+          username: amnic
+        batchsize: 2097152
+        batchwait: 5s
+        external_labels:
+          cluster_name: cost-qa
+        tenant_id: cost-qa
+        url: http://loki.observability.internal.amnic.me/loki/api/v1/push
+    logLevel: info
+    snippets:
+      pipelineStages:
+        - cri: { }
+        - docker: { }
+        - multiline:
+            firstline: ^\d{4}-\d{2}-\d{2} \d{1,2}:\d{2}:\d{2}
+        - drop:
+            expression: (.*/health.*)
+        - drop:
+            expression: (default|kube-system|prometheus|monitoring|argocd)
+            source: namespace
+  configmap:
+    enabled: true
+  extraArgs: [ ]
+  extraVolumeMounts: [ ]
+  extraVolumes: [ ]
+  fullnameOverride: promtail
+  nameOverride: promtail
+  resources:
+    limits:
+      memory: 1Gi
+    requests:
+      cpu: 40m
+      memory: 128Mi
+  serviceMonitor:
+    annotations: { }
+    enabled: false
+    interval: null
+    labels: { }
+    namespace: null
+    namespaceSelector: { }
+    relabelings: [ ]
+    scrapeTimeout: null
+  tolerations:
+    - key: ""
+      operator: Exists
+  updateStrategy:
+    rollingUpdate:
+      maxUnavailable: 25%
+    type: RollingUpdate
