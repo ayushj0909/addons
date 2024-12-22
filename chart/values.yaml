@@ -1,7 +1,7 @@
 global:
   argocd_namespace: argocd
   repoURL: https://github.com/ayushj0909/addons
-  addonsDir: addons
+  addonsDir: add-ons
 
 argocd_image_updater:
   enabled: true
