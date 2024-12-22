@@ -5,7 +5,6 @@ global:
 argocd_image_updater:
   enabled: true
   namespace: argocd
-  releaseName: argo-cd-image-updater
   syncwave: 1
 promtail:
   enabled: true

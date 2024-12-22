@@ -37,7 +37,7 @@ argocd-image-updater:
   extraEnv: []
   extraEnvFrom: []
   extraObjects: []
-  fullnameOverride: ""
+  fullnameOverride: "argo-cd-image-updater"
   image:
     pullPolicy: Always
     repository: quay.io/argoprojlabs/argocd-image-updater
