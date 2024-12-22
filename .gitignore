@@ -1,1 +1,3 @@
 .idea/
+add-ons/*/charts
+add-ons/*/Chart.lock
