@@ -20,7 +20,7 @@ spec:
     helm:
       releaseName: argocd-image-updater
       valueFiles:
-       - {{ $.Values.global.addonsDir}}/argocd-image-updater/values.yaml
+       - values.yaml
   destination:
     namespace: {{ .namespace }}
     server: 'https://kubernetes.default.svc'
