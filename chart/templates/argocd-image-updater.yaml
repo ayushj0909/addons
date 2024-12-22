@@ -15,7 +15,7 @@ spec:
   project: default
   source:
     repoURL: {{ $.Values.global.repoURL }}
-    targetRevision: main
+    targetRevision: feat/addons/argo-events
     path: add-ons/argocd-image-updater
     helm:
       releaseName: argocd-image-updater
