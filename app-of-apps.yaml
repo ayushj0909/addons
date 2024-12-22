@@ -8,8 +8,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/lhs-aws-dep/addons/chart
-    targetRevision: main
+    repoURL: https://github.com/ayushj0909/addons.git
+    targetRevision: HEAD
+    path: chart
     helm: {}
   destination:
     namespace: argocd
