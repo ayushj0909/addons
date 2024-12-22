@@ -6,6 +6,11 @@ argocd_image_updater:
   enabled: true
   namespace: argocd
   syncwave: 1
+argo_events:
+  enabled: true
+  namespace: argo
+  syncwave: 1
+  releaseName: argo-events
 promtail:
   enabled: true
   namespace: prometheus
