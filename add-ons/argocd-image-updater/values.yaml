@@ -1,85 +1,86 @@
-affinity: {}
-authScripts:
-  enabled: true
-  scripts:
-    ecr-login.sh: |
-      #!/bin/sh
-      aws ecr --region ap-south-1 get-authorization-token --output text --query 'authorizationData[].authorizationToken' | base64 -d
-config:
-  applicationsAPIKind: ""
-  argocd:
-    grpcWeb: true
-    insecure: false
-    plaintext: false
-    serverAddress: ""
-    token: ""
-  disableKubeEvents: false
-  gitCommitMail: ""
-  gitCommitSignOff: false
-  gitCommitSigningKey: ""
-  gitCommitSigningMethod: ""
-  gitCommitTemplate: ""
-  gitCommitUser: ""
-  logLevel: debug
-  registries:
-  - api_url: https://214964805500.dkr.ecr.ap-south-1.amazonaws.com
-    credentials: ext:/scripts/ecr-login.sh
-    credsexpire: 12h
-    default: true
-    insecure: false
-    name: amnic-zumen-ECR
-    ping: false
-    prefix: 214964805500.dkr.ecr.ap-south-1.amazonaws.com
-  sshConfig: {}
-createClusterRoles: true
-extraArgs: []
-extraEnv: []
-extraEnvFrom: []
-extraObjects: []
-fullnameOverride: ""
-image:
-  pullPolicy: Always
-  repository: quay.io/argoprojlabs/argocd-image-updater
-  tag: ""
-imagePullSecrets: []
-initContainers: []
-metrics:
-  enabled: false
-  service:
-    annotations: {}
-    labels: {}
-    servicePort: 8081
-  serviceMonitor:
-    additionalLabels: {}
+argocd-image-updater:
+  affinity: {}
+  authScripts:
+    enabled: true
+    scripts:
+      ecr-login.sh: |
+        #!/bin/sh
+        aws ecr --region ap-south-1 get-authorization-token --output text --query 'authorizationData[].authorizationToken' | base64 -d
+  config:
+    applicationsAPIKind: ""
+    argocd:
+      grpcWeb: true
+      insecure: false
+      plaintext: false
+      serverAddress: ""
+      token: ""
+    disableKubeEvents: false
+    gitCommitMail: ""
+    gitCommitSignOff: false
+    gitCommitSigningKey: ""
+    gitCommitSigningMethod: ""
+    gitCommitTemplate: ""
+    gitCommitUser: ""
+    logLevel: debug
+    registries:
+    - api_url: https://214964805500.dkr.ecr.ap-south-1.amazonaws.com
+      credentials: ext:/scripts/ecr-login.sh
+      credsexpire: 12h
+      default: true
+      insecure: false
+      name: amnic-zumen-ECR
+      ping: false
+      prefix: 214964805500.dkr.ecr.ap-south-1.amazonaws.com
+    sshConfig: {}
+  createClusterRoles: true
+  extraArgs: []
+  extraEnv: []
+  extraEnvFrom: []
+  extraObjects: []
+  fullnameOverride: ""
+  image:
+    pullPolicy: Always
+    repository: quay.io/argoprojlabs/argocd-image-updater
+    tag: ""
+  imagePullSecrets: []
+  initContainers: []
+  metrics:
     enabled: false
-    interval: 30s
-    metricRelabelings: []
-    namespace: ""
-    relabelings: []
-    selector: {}
-nameOverride: ""
-namespaceOverride: ""
-nodeSelector: {}
-podAnnotations: {}
-podLabels: {}
-podSecurityContext: {}
-rbac:
-  enabled: true
-replicaCount: 1
-resources: {}
-securityContext:
-  allowPrivilegeEscalation: true
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-serviceAccount:
-  annotations:
-    eks.amazonaws.com/role-arn: arn:aws:iam::214964805500:role/ArgoCDImageUpdater-ECR-ReadOnly
-  create: true
-  labels: {}
-  name: ""
+    service:
+      annotations: {}
+      labels: {}
+      servicePort: 8081
+    serviceMonitor:
+      additionalLabels: {}
+      enabled: false
+      interval: 30s
+      metricRelabelings: []
+      namespace: ""
+      relabelings: []
+      selector: {}
+  nameOverride: ""
+  namespaceOverride: ""
+  nodeSelector: {}
+  podAnnotations: {}
   podLabels: {}
-tolerations: []
-updateStrategy:
-  type: Recreate
-volumeMounts: []
-volumes: []
+  podSecurityContext: {}
+  rbac:
+    enabled: true
+  replicaCount: 1
+  resources: {}
+  securityContext:
+    allowPrivilegeEscalation: true
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+  serviceAccount:
+    annotations:
+      eks.amazonaws.com/role-arn: arn:aws:iam::214964805500:role/ArgoCDImageUpdater-ECR-ReadOnly
+    create: true
+    labels: {}
+    name: ""
+    podLabels: {}
+  tolerations: []
+  updateStrategy:
+    type: Recreate
+  volumeMounts: []
+  volumes: []
