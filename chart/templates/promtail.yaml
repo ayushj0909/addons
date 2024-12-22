@@ -29,5 +29,7 @@ spec:
       prune: true
     syncOptions:
       - CreateNamespace=true
+      - ServerSideApply=true
+      - Timeout=180
 {{- end }}
   {{- end }}
