@@ -15,7 +15,7 @@ spec:
   project: default
   source:
     repoURL: {{ $.Values.global.repoURL }}
-    targetRevision: main
+    targetRevision: feat/addons/external-dns
     path: add-ons/external-dns
     helm:
       releaseName: {{.releaseName}}
