@@ -19,7 +19,7 @@ spec:
     path: add-ons/argocd-image-updater
     helm:
       releaseName: argocd-image-updater
-      valuesFiles:
+      valueFiles:
        - {{ $.Values.global.addonsDir}}/argocd-image-updater/values.yaml
   destination:
     namespace: {{ .namespace }}
