@@ -2,8 +2,12 @@ global:
   argocd_namespace: argocd
   repoURL: https://github.com/ayushj0909/addons
   addonsDir: add-ons
-
 argocd_image_updater:
   enabled: true
   namespace: argocd
+  syncwave: 1
+promtail:
+  enabled: true
+  namespace: prometheus
+  releaseName: promtail
   syncwave: 1
