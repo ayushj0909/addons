@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/lhs-aws-dep/addons/chart
-    targetRevision: maim
+    targetRevision: main
     helm: {}
   destination:
     namespace: argocd
