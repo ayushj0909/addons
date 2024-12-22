@@ -6,6 +6,10 @@ argocd_image_updater:
   enabled: true
   namespace: argocd
   syncwave: 1
+external_dns:
+  enabled: true
+  namespace: external-dns
+  releaseName: external-dns
 promtail:
   enabled: true
   namespace: prometheus
