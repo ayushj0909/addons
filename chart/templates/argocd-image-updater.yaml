@@ -16,7 +16,7 @@ spec:
   source:
     repoURL: {{ $.Values.global.repoURL }}
     targetRevision: main
-    path: add-ons/argocd-image-updater
+    path: {{ $.Values.global.addonsDir }}/argocd-image-updater
     helm:
       releaseName: {{.releaseName}}
       valueFiles:
