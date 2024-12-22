@@ -18,7 +18,7 @@ spec:
     targetRevision: main
     path: add-ons/argocd-image-updater
     helm:
-      releaseName: argocd-image-updater
+      releaseName: {{.releaseName}}
       valueFiles:
        - values.yaml
   destination:
