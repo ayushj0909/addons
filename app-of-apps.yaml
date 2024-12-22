@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/ayushj0909/addons.git
-    targetRevision: HEAD
+    targetRevision: main
     path: chart
     helm: {}
   destination:
