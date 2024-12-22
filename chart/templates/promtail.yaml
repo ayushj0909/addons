@@ -1,0 +1,33 @@
+{{- with .Values.promtail }}
+  {{- if .enabled }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: addons-promtail
+  namespace: {{ $.Values.global.argocd_namespace }}
+  annotations:
+    {{- if .syncwave }}
+    argocd.argoproj.io/sync-wave: {{ .syncwave | quote}}
+    {{- end }}
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: {{ $.Values.global.repoURL }}
+    targetRevision: main
+    path: {{ $.Values.global.addonsDir }}/promtail
+    helm:
+      releaseName: {{ .releaseName }}
+      valueFiles:
+       - values.yaml
+  destination:
+    namespace: {{ .namespace }}
+    server: 'https://kubernetes.default.svc'
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
+{{- end }}
+  {{- end }}
