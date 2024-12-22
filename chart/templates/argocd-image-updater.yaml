@@ -3,7 +3,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd-image-updater
+  name: addons/argocd-image-updater
   namespace: {{ $.Values.global.argocd_namespace }}
   annotations:
     {{- if .syncwave }}
