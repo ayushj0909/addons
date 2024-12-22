@@ -7,7 +7,7 @@ argocd_image_updater:
   namespace: argocd
   syncwave: 1
 promtail:
-  enabled: false
+  enabled: true
   namespace: prometheus
   releaseName: promtail
   syncwave: 1
