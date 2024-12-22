@@ -1,0 +1,7 @@
+global:
+  argocd_namespace: argocd
+  repoURL: https://github.com/lhs-aws-dep/addons
+argocd_image_updater:
+  enabled: true
+  namespace: argocd
+  syncwave: 1
